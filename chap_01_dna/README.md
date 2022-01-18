@@ -25,7 +25,7 @@ The program will output a text file in the `output` directory with base names in
 ```
 $ ./dna.py ATGC
 Counting is done!
-Output "output.txt" is in the output/ directory :)
+'output.txt' is in the directory out :)
 A: 1 (25%)
 C: 1 (25%)
 G: 1 (25%)
@@ -36,11 +36,12 @@ C       1
 G       1
 T       1
 ```
-
 The program can only read and output one file at each run.
 
 ## Tests
 `count()` function in `dna.py` is tested with `count_test()`:
+
+`$ pytest dna.py`
 
 
 **To do:**

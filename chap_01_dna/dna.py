@@ -24,15 +24,15 @@ def get_args() -> Args:
 
     parser.add_argument('dna',
                         metavar='str',
-                        help='A string of nucleotides in a file or via command line')
+                        help='A string of nucleotides as a raw string or file')
 
     args = parser.parse_args()
 
-    # -- Add a way to upload a file rather a str variable
-    # - check if file
-    # - read file
-    # - remove whitespace
+    # -- Add an option to upload a file
+    # - check if file is an existing file
     if os.path.isfile(args.dna):
+        # - read file
+        # - remove whitespace
         args.dna = open(args.dna).read().rstrip()
 
     return Args(args.dna)
@@ -40,7 +40,7 @@ def get_args() -> Args:
 
 # --------------------------------------------------
 def main():
-    """Execute all functions in the module"""
+    """ Execute all functions in the module """
 
     # -- Get args.dna which is our DNA string
     args = get_args()
@@ -56,13 +56,13 @@ def main():
 
     # -- Print message
     print("Counting is done!\n"
-          "Output \"output.txt\" is in the output/ directory :)")
+          "'output.txt' is in the directory out :)")
     message(count_a, count_c, count_g, count_t, bases_dict)
 
 
 # --------------------------------------------------
 def count(dna: str) -> Tuple[int, int, int, int]:
-    """Count the nucleotides"""
+    """ Count the nucleotides """
 
     # - convert all characters to uppercase
     dna = dna.upper()
@@ -97,7 +97,7 @@ def make_dict(count_a: int,
               count_c: int,
               count_g: int,
               count_t: int) -> Dict[str, int]:
-    """Make a dictionary with base names as keys and base counts as values"""
+    """ Make a dictionary with base names as keys and base counts as values """
 
     bases_dict = {'A': count_a, 'C': count_c, 'G': count_g, 'T': count_t}
 
@@ -106,7 +106,7 @@ def make_dict(count_a: int,
 
 # --------------------------------------------------
 def output(bases_dict: Dict[str, int]) -> None:
-    """Output into a text file"""
+    """ Output into a text file """
 
     with open('output/output.txt', 'w') as file:
         for key, value in bases_dict.items():
@@ -119,7 +119,7 @@ def message(count_a: int,
             count_g: int,
             count_t: int,
             bases_dict: Dict[str, int]) -> None:
-    """Get % content for each base and print it"""
+    """ Get % content for each base and print it """
 
     # -- Count the number of all bases
     n_all_bases = count_a + count_c + count_g + count_t
