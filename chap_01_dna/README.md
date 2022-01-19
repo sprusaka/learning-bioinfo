@@ -20,7 +20,8 @@ optional arguments:
 
 ```
 
-The program will output a text file in the `output` directory with base names in the first column and base counts in the second column.
+The program will output a text file with base names in the first column and base counts in the second column.
+The file will be written to a pre-created `output` directory.
 
 ```
 $ ./dna.py ATGC
@@ -42,6 +43,12 @@ The program can only read and output one file at each run.
 `count()` function in `dna.py` is tested with `count_test()`:
 
 `$ pytest dna.py`
+
+
+## Things learnt
+* Writing a simple unit test for the `count()` function which is placed in the source code.
+* Using `argparse` module to define and validate arguments and to generate documentation.
+* Using a file as an input.
 
 
 **To do:**
