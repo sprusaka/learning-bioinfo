@@ -8,10 +8,3 @@ At the moment I'm using two books to do this:
 So the project is me going through Mastering Python for Bioinformatics chapter by chapter and solving [Rosalind problems](https://rosalind.info/problems/list-view/) while applying data skills I'm learning in Bioinformatics Data Skills.
 
 Each directory of the project is dedicated to one Rosalind challenge.
-
-## Helpful command line bits
-Along the way I'm learning helpful command-line bits and bobs and list them here.
-
-### Directories
-* to make several directories at once`mkdir -p chap_04_fib/{data,output}`
-* see contents of a directory `ls -l output/`
