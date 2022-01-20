@@ -10,10 +10,3 @@ So the project is me going through Mastering Python for Bioinformatics chapter b
 Each directory of the project is dedicated to one Rosalind challenge.
 
 Most of the code is very similar to example code in the book, but I am going through the examples line by line and adding my own flare to it.
-
-## Helpful command line bits
-Along the way I'm learning helpful command-line bits and bobs and list them here.
-
-### Directories
-* to make several directories at once`mkdir -p chap_04_fib/{data,output}`
-* see contents of a directory `ls -l output/`
