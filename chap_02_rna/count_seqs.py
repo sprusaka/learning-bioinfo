@@ -58,7 +58,7 @@ def main() -> None:
             for dna in filehandle:
                 length = len(dna)
                 seq_lengths.append(length)
-                out_filehandle.write(str(length))
+                out_filehandle.write(str(length) + '\n')
         print(filehandle.name, '->', out_file)
 
     if len(seq_lengths) == 1:

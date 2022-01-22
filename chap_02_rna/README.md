@@ -28,7 +28,6 @@ optional arguments:
 ### Tests
 `rna_test.py `contains tests for `rna.py`. The test can be run using the Makefile:
 
-
 ```
 $ make test
 make[1]: Entering directory '/home/my/projects/learning-bioinfo/chap_02_rna'
@@ -48,12 +47,18 @@ rna_test.py::test_good_input1 PASSED                                            
 rna_test.py::test_good_input2 PASSED                                                                              [ 85%]
 rna_test.py::test_good_multiple_inputs PASSED                                                                     [100%]
 
-================================================================== 7 passed in 0.69s ====================================
+================================================================== 7 passed in 0.69s ===================================
 ```
 ## count_seqs.py
 This script was written as a part of an exercise at the end of Chapter 2 in Mastering Python for Bioinformatics.
 
-Inputs and outputs are the same as in rna.py, but the output is sequences length rather than transcribed RNA.
+Inputs and outputs are the same as in `rna.py`, but the output is sequences length rather than transcribed RNA.
+
+```
+$ cat output/seq_input2.txt 
+21
+19
+```
 ### To do:
 Test suite still needs to be written for this script.
 ## Things learnt
