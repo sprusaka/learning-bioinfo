@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Purpose: Transcribing DNA into RNA
-Rosalind ID: RNA
+Purpose: Calculating lengths of input sequences
 """
 
 import argparse
 from typing import NamedTuple, List, TextIO
 import os
+from statistics import mean
 
 
 class Args(NamedTuple):
@@ -20,11 +20,11 @@ def get_args() -> Args:
     """ Get command-line arguments """
 
     parser = argparse.ArgumentParser(
-        description='-- Transcribing DNA into RNA',
+        description='-- Calculating sequence length',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
-                        help='Input DNA file(s)',
+                        help='Input sequence file(s)',
                         metavar='FILE',
                         nargs='+',
                         type=argparse.FileType('rt'))
@@ -47,34 +47,28 @@ def main() -> None:
 
     args = get_args()
 
-    # -- Create output directory if it doesn't exist
     if not os.path.isdir(args.out_dir):
         os.makedirs(args.out_dir)
 
-    # -- Transcribe DNA and write output in "output" directory
-    n_files, n_seqs = 0, 0
+    seq_lengths = []
     for filehandle in args.file:
-        # - count files
-        n_files += 1
-        # - name the output files
         out_file = os.path.join(args.out_dir,
-                                'out_' + os.path.basename(filehandle.name))
-
-        # - open an output file in the output directory
+                                'seq_' + os.path.basename(filehandle.name))
         with open(out_file, 'wt') as out_filehandle:
-            # - write the transcribed seq to output file
             for dna in filehandle:
-                # - update the number of seqs in input file
-                n_seqs += 1
-                # - transcribe the DNA sequence
-                out_filehandle.write(dna.replace('T', 'U'))
-        # - print names of input and output files
+                length = len(dna)
+                seq_lengths.append(length)
+                out_filehandle.write(str(length))
         print(filehandle.name, '->', out_file)
 
-    # -- Print out a message
-    print(f'Wrote {n_files} file{"" if n_files == 1 else "s"} '
-          f'with {n_seqs} sequence{"" if n_seqs == 1 else "s"} in total '
-          f'to "{args.out_dir}" directory.')
+    if len(seq_lengths) == 1:
+        print(f'Input file contains 1 sequence'
+              f'of {seq_lengths[0]} base pairs.')
+    else:
+        print(f'The average length of all processed sequences '
+              f'is {mean(seq_lengths)} base pairs.\n'
+              f'The longest sequence is {max(seq_lengths)} '
+              f'and the shortest sequence is {min(seq_lengths)}.')
 
 
 # --------------------------------------------------
