@@ -56,7 +56,7 @@ def main():
 
     # -- Print message
     print("Counting is done!\n"
-          "'output.txt' is in the directory out :)")
+          "'output.txt' is in the output directory :)")
     message(count_a, count_c, count_g, count_t, bases_dict)
 
 
